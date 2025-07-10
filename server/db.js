@@ -79,11 +79,42 @@
 // export default pool;
 
 
+// // db.js
+// import dotenv from "dotenv";
+// import pg from "pg";
+// const { Pool } = pg;
+
+
+// dotenv.config();
+
+// // Database connection configuration
+// const pool = new Pool({
+//   connectionString: process.env.PG_CONNECTION_STRING,
+//   ssl: { 
+//     rejectUnauthorized: false
+//   }
+// });
+
+// // Test connection
+// (async () => {
+//   try {
+//     await pool.query("SELECT NOW()");
+//     console.log("✅ Connected to PostgreSQL");
+//   } catch (err) {
+//     console.error("❌ Database connection failed:", err.message);
+//   }
+// })();
+
+// // Named export
+// export { pool };
+
+// // Default export
+// export default pool;
+
 // db.js
 import dotenv from "dotenv";
 import pg from "pg";
 const { Pool } = pg;
-
 
 dotenv.config();
 
@@ -105,8 +136,9 @@ const pool = new Pool({
   }
 })();
 
-// Named export
+// Named exports
+export const query = (text, params) => pool.query(text, params);
 export { pool };
 
-// Default export
+// Default export (optional)
 export default pool;
