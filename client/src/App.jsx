@@ -5,7 +5,7 @@ import Layout from './Layout';
 import Home from './pages/Home';
 import ContactUs from './pages/ContactUs';
 import LoginForm from './components/LoginForm';
-import RegisterForm from './components/RegisterForm';
+//import RegisterForm from './components/RegisterForm';
 import Calculator from './pages/Calculator';
 import AboutUs from './pages/AboutUs';
 import Information from './pages/Information';
@@ -56,14 +56,14 @@ function App() {
           <Route path="/tips" element={<Tips />} />
           <Route path="/calculator" element={<Calculator />} />
           
-          {/* Auth routes */}
-          <Route path="/register" element={<RegisterForm />} />
+          {/* Auth routes
+          <Route path="/register" element={<RegisterForm />} />*/}
           <Route
             path="/login"
             element={
               loggedIn ? <Navigate to="/dashboard" /> : <LoginForm setLoggedIn={setLoggedIn} />
             }
-          />
+          /> 
           <Route path="/resetPassword" element={<ResetPassword />} />
 
           {/* Protected routes */}
